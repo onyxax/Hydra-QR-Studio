@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor configs
+.vscode/
+.idea/
+
+# Local change history
+ChangeLog.md
+changelog.md

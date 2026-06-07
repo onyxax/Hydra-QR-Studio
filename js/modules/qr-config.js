@@ -6,7 +6,7 @@ export const DATA_TYPES = {
   url: {
     label: 'URL',
     fields: [
-      { id: 'url', label: 'Website URL', type: 'text', placeholder: 'https://example.com', required: true, defaultValue: 'https://hydralauncher.gg' }
+      { id: 'url', label: 'Website URL', type: 'text', placeholder: 'https://example.com', required: true, defaultValue: '' }
     ],
     encode: (values) => values.url || ''
   },

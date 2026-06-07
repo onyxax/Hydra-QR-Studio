@@ -110,4 +110,6 @@ hydra-qr-studio/
 
 ## License
 
-MIT — use freely in personal and commercial projects.
+Copyright (c) 2026 Onyxax — [MIT License](LICENSE)
+
+Licensed under the MIT License. See the [LICENSE](LICENSE) file for full terms.

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230F0F0F'/%3E%3Cg fill='white'%3E%3Crect x='22' y='22' width='14' height='56' rx='4'/%3E%3Crect x='64' y='22' width='14' height='56' rx='4'/%3E%3Crect x='22' y='43' width='56' height='14' rx='4'/%3E%3C/g%3E%3Cg fill='%230891B2'%3E%3Crect x='46' y='46' width='8' height='8' rx='2'/%3E%3C/g%3E%3C/svg%3E" width="84" height="84" alt="Hydra Logo"/>
+  <img src="assets/logo.svg" width="84" height="84" alt="Hydra Logo"/>
 </p>
 
 <h1 align="center">Hydra QR Studio</h1>
@@ -34,36 +34,36 @@
 
 ---
 
-## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/sparkles.svg" width="20" height="20" style="vertical-align:middle" /> Overview
+## <img src="assets/icons/heroicons/sparkles.svg" width="20" height="20" style="vertical-align:middle" /> Overview
 
 > **Hydra QR Studio** is a production-grade, **floating glass/blur** QR generator for power users. No framework, no build — open and generate. Built with pure HTML/CSS/JS and a single CDN dependency, deployed as static on Vercel.
 
 **Why Hydra?**
-- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/bolt.svg" width="14" height="14" style="vertical-align:middle" /> **Instant** — zero install, zero build, opens in 200ms
-- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/check-circle.svg" width="14" height="14" style="vertical-align:middle" /> **Precise** — 100% scannable, high-contrast preview
-- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/swatch.svg" width="14" height="14" style="vertical-align:middle" /> **Expressive** — 255 icons + gradients + frame captions
-- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/squares-2x2.svg" width="14" height="14" style="vertical-align:middle" /> **Floating** — Topbar + Dock + two glass panels
+- <img src="assets/icons/heroicons/bolt.svg" width="14" height="14" style="vertical-align:middle" /> **Instant** — zero install, zero build, opens in 200ms
+- <img src="assets/icons/heroicons/check-circle.svg" width="14" height="14" style="vertical-align:middle" /> **Precise** — 100% scannable, high-contrast preview
+- <img src="assets/icons/heroicons/swatch.svg" width="14" height="14" style="vertical-align:middle" /> **Expressive** — 255 icons + gradients + frame captions
+- <img src="assets/icons/heroicons/squares-2x2.svg" width="14" height="14" style="vertical-align:middle" /> **Floating** — Topbar + Dock + two glass panels
 
 ---
 
-## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/squares-2x2.svg" width="20" height="20" style="vertical-align:middle" /> Features
+## <img src="assets/icons/heroicons/squares-2x2.svg" width="20" height="20" style="vertical-align:middle" /> Features
 
-| <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/link.svg" width="14" height="14" /> Data | <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/eye.svg" width="14" height="14" /> Visual | <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/photo.svg" width="14" height="14" /> Brand | <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/swatch.svg" width="14" height="14" /> Color |
+| <img src="assets/icons/heroicons/link.svg" width="14" height="14" /> Data | <img src="assets/icons/heroicons/eye.svg" width="14" height="14" /> Visual | <img src="assets/icons/heroicons/photo.svg" width="14" height="14" /> Brand | <img src="assets/icons/heroicons/swatch.svg" width="14" height="14" /> Color |
 |---|---|---|---|
 | **10 Types** — URL, Text, Email, WiFi, vCard, WhatsApp, Instagram, X, PayPal, Crypto | **Dots** — square, extra-rounded, rounded, dots, classy (+ gradient + opacity) | **184 Brands** — SimpleIcons CDN with official hex | **QR Colors** — fg/bg + WCAG contrast badge |
 | Live encode via `qr-config.js` | **Eyes** — frame shape (square/rounded/leaf) + ball shape + eye colors | **71 System** — Lucide CDN, theme-adaptive | **Background Gradient** — linear/radial + angle |
 |  | Error correction L/M/Q/H • Quiet zone • Preview width | **Logo** — drag-drop, padding, bg, radius, shadow, hide dots • **Icon recolor** pipeline | **Dots Gradient** — independent fg gradient |
 
 **More:**
-- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/rectangle-group.svg" width="14" height="14" /> **Frame Caption** — `SCAN ME` bar below QR
-- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/bookmark.svg" width="14" height="14" /> **Presets** — Classic / Ocean / Sunset / Midnight + Save Custom
-- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/moon.svg" width="14" height="14" /> **Dark/Light** — CSS variables + `localStorage` + smart contrast
-- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/arrow-down-tray.svg" width="14" height="14" /> **Export 6** — **PNG / SVG / JPG / WEBP / PDF / Copy**
-- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/view-columns.svg" width="14" height="14" /> **Floating Studio** — Glass Topbar + Left Dock + two floating panels
+- <img src="assets/icons/heroicons/rectangle-group.svg" width="14" height="14" /> **Frame Caption** — `SCAN ME` bar below QR
+- <img src="assets/icons/heroicons/bookmark.svg" width="14" height="14" /> **Presets** — Classic / Ocean / Sunset / Midnight + Save Custom
+- <img src="assets/icons/heroicons/moon.svg" width="14" height="14" /> **Dark/Light** — CSS variables + `localStorage` + smart contrast
+- <img src="assets/icons/heroicons/arrow-down-tray.svg" width="14" height="14" /> **Export 6** — **PNG / SVG / JPG / WEBP / PDF / Copy**
+- <img src="assets/icons/heroicons/view-columns.svg" width="14" height="14" /> **Floating Studio** — Glass Topbar + Left Dock + two floating panels
 
 ---
 
-## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/cpu-chip.svg" width="20" height="20" style="vertical-align:middle" /> Tech Stack
+## <img src="assets/icons/heroicons/cpu-chip.svg" width="20" height="20" style="vertical-align:middle" /> Tech Stack
 
 | Layer | Technology | CDN |
 |---|---|---|
@@ -79,7 +79,7 @@
 
 ---
 
-## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/folder.svg" width="20" height="20" style="vertical-align:middle" /> Project Structure
+## <img src="assets/icons/heroicons/folder.svg" width="20" height="20" style="vertical-align:middle" /> Project Structure
 
 ```text
 hydra-qr-studio/
@@ -107,7 +107,7 @@ hydra-qr-studio/
 
 ---
 
-## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/rocket-launch.svg" width="20" height="20" style="vertical-align:middle" /> Getting Started
+## <img src="assets/icons/heroicons/rocket-launch.svg" width="20" height="20" style="vertical-align:middle" /> Getting Started
 
 ```bash
 # clone
@@ -127,7 +127,7 @@ http://localhost:8080
 
 ---
 
-## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/cursor-arrow-rays.svg" width="20" height="20" style="vertical-align:middle" /> Usage
+## <img src="assets/icons/heroicons/cursor-arrow-rays.svg" width="20" height="20" style="vertical-align:middle" /> Usage
 
 1. Pick **Data Type** → fill form → live preview updates
 2. Tweak **Visuals** (dots, eyes) → **Branding** (icon/logo) → **Colors** (gradients)
@@ -136,7 +136,7 @@ http://localhost:8080
 
 ---
 
-## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/wrench-screwdriver.svg" width="20" height="20" style="vertical-align:middle" /> Customization
+## <img src="assets/icons/heroicons/wrench-screwdriver.svg" width="20" height="20" style="vertical-align:middle" /> Customization
 
 - **Tokens** → `css/tokens.css` (all colors, radii, shadows, `--accent`)
 - **Layout** → `css/layout.css` (floating header/dock, `grid-template-columns: 1fr var(--preview-col)`)
@@ -146,7 +146,7 @@ http://localhost:8080
 
 ---
 
-## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/cloud-arrow-up.svg" width="20" height="20" style="vertical-align:middle" /> Deployment
+## <img src="assets/icons/heroicons/cloud-arrow-up.svg" width="20" height="20" style="vertical-align:middle" /> Deployment
 
 **Vercel — zero config:**
 1. Push to GitHub
@@ -161,7 +161,7 @@ vercel deploy --prod
 
 ---
 
-## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/information-circle.svg" width="20" height="20" style="vertical-align:middle" /> FAQ
+## <img src="assets/icons/heroicons/information-circle.svg" width="20" height="20" style="vertical-align:middle" /> FAQ
 
 **Q: Why not use a framework?**
 A: To stay fast, portable and to train Vanilla JS — zero build, instant open, easy to fork.
@@ -171,6 +171,17 @@ A: Yes — high error correction `Q (25%)` by default + contrast badge warns if 
 
 ---
 
-## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/shield-check.svg" width="20" height="20" style="vertical-align:middle" /> License
+## <img src="assets/icons/heroicons/shield-check.svg" width="20" height="20" style="vertical-align:middle" /> License
 
 Copyright © 2026 Onyxax — [MIT License](LICENSE)
+
+---
+
+<p align="center">
+  <img src="assets/logo.svg" width="48" height="48" alt="Hydra"/>
+  <br/>
+  <b>Hydra QR Studio</b> — Made with Vanilla JS<br/>
+  <a href="https://github.com/onyxax/Hydra-QR-Studio">★ Star on GitHub</a> • <a href="https://github.com/onyxax/Hydra-QR-Studio/issues">Report Issue</a> • <a href="https://vercel.com/new">Deploy</a>
+  <br/><br/>
+  <span style="color:#868E96; font-size:12px">© 2026 Onyxax • MIT • Built for power users</span>
+</p>

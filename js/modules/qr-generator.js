@@ -1,13 +1,37 @@
 /* ═══════════════════════════════════════════════════════
-   qr-generator.js — qr-code-styling wrapper.
-   Uses append() for live preview, update() for changes.
-   Supports icon color filter, per-corner finder eye rounding,
-   gradient backgrounds, eye colors, and smart contrast.
+   qr-generator.js — qr-code-styling wrapper (v2 modern)
+   Enterprise Modern — supports dots gradient, eye shapes,
+   logo style, hideBackgroundDots, opacity
    ═══════════════════════════════════════════════════════ */
 
 import { processQRCanvas } from './canvas-postprocess.js';
 
 let qrInstance = null;
+
+/**
+ * Convert hex to rgba with alpha
+ * @param {string} hex
+ * @param {number} alpha 0-1
+ */
+function hexToRgba(hex, alpha = 1) {
+  const h = hex.replace('#', '');
+  const full = h.length === 3 ? h.split('').map((c) => c + c).join('') : h;
+  const num = parseInt(full, 16);
+  const r = (num >> 16) & 255;
+  const g = (num >> 8) & 255;
+  const b = num & 255;
+  if (alpha >= 1) return hex;
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+/**
+ * Map eye frame shape to library type
+ */
+function mapEyeFrameShape(shape, hasRadius) {
+  if (shape === 'leaf') return 'extra-rounded';
+  if (shape) return shape;
+  return hasRadius ? 'extra-rounded' : 'square';
+}
 
 /**
  * Render a QR code into the container.
@@ -64,6 +88,57 @@ export async function renderQR(data, config, container) {
   const eyeOuterColor = config.eyeOuterColor || fgColor;
   const eyeInnerColor = config.eyeInnerColor || fgColor;
 
+  /* ── Dots Gradient + Opacity ── */
+  const dotsOpacity = (config.dotsOpacity ?? 100) / 100;
+  const dotsColor = hexToRgba(fgColor, dotsOpacity);
+  const dotsOptions = {
+    color: dotsColor,
+    type: dotStyle,
+  };
+  if (config.dotsGradientType && config.dotsGradientType !== 'none') {
+    dotsOptions.gradient = {
+      type: config.dotsGradientType,
+      rotation: config.dotsGradientAngle || 0,
+      colorStops: [
+        { offset: 0, color: hexToRgba(config.dotsGradientStart || fgColor, dotsOpacity) },
+        { offset: 1, color: hexToRgba(config.dotsGradientEnd || '#0891B2', dotsOpacity) },
+      ],
+    };
+  } else {
+    dotsOptions.gradient = null;
+  }
+
+  /* ── Eye Shapes & Corner Radii (FIXED) ── */
+  const eyeFrameShape = config.eyeFrameShape || 'square';
+  const eyeBallShape = config.eyeBallShape || 'square';
+
+  const cornerVals = config.cornerRadii ? Object.values(config.cornerRadii) : [0];
+  const hasAnyCorner = cornerVals.some((v) => v > 0);
+  const hasCornerVariation = hasAnyCorner && !cornerVals.every((v) => v === cornerVals[0]);
+  const avgCorner = hasAnyCorner ? cornerVals.reduce((a,b)=>a+b,0)/cornerVals.length : 0;
+
+  // Uniform corner rounding: let library handle it natively
+  let squareType, squareRadius;
+  if (hasCornerVariation) {
+    // Per-corner differing: library square, canvas postprocess will clip
+    squareType = 'square';
+    squareRadius = 0;
+  } else if (hasAnyCorner) {
+    // Uniform >0: extra-rounded with averaged radius
+    squareType = 'extra-rounded';
+    squareRadius = Math.min(avgCorner / 50, 1);
+  } else {
+    // No corner rounding: use selected eye frame shape
+    squareType = mapEyeFrameShape(eyeFrameShape, false);
+    squareRadius = 0;
+    // If shape itself is rounded, give it a sensible radius
+    if (squareType === 'extra-rounded') squareRadius = 0.5;
+    if (squareType === 'rounded') squareRadius = 0.3;
+  }
+
+  // hideBackgroundDots toggle (professional)
+  const hideDots = config.hideBackgroundDots !== undefined ? !!config.hideBackgroundDots : !!imageData;
+
   /* ── Options ── */
   const options = {
     width: size,
@@ -74,21 +149,18 @@ export async function renderQR(data, config, container) {
     imageOptions: {
       crossOrigin: 'anonymous',
       margin: imageMargin,
-      hideBackgroundDots: !!imageData,
+      hideBackgroundDots: hideDots,
       imageSize: imageData ? imageScale : undefined,
     },
     backgroundOptions,
-    dotsOptions: {
-      color: fgColor,
-      type: dotStyle,
-    },
+    dotsOptions,
     cornersSquareOptions: {
-      type: borderRadius > 0 ? 'extra-rounded' : 'square',
+      type: squareType,
       color: eyeOuterColor,
-      borderRadius: borderRadius,
+      borderRadius: squareRadius,
     },
     cornersDotOptions: {
-      type: 'square',
+      type: eyeBallShape,
       color: eyeInnerColor,
     },
     qrOptions: {
@@ -107,11 +179,6 @@ export async function renderQR(data, config, container) {
   container.innerHTML = '';
   await qrInstance.append(container);
 
-  /* ── Apply icon color filter to center image ── */
-  if (config.iconFilter) {
-    applyIconFilter(container, config.iconFilter);
-  }
-
   /* ── Apply per-corner finder eye rounding ── */
   if (config.cornerRadii) {
     const hasAny = Object.values(config.cornerRadii).some(r => r > 0);
@@ -121,18 +188,18 @@ export async function renderQR(data, config, container) {
       });
     }
   }
-}
 
-/**
- * Apply CSS filter to the center icon/image inside the QR canvas.
- * Since qr-code-styling composites the image onto the canvas,
- * we cannot filter it post-render. Instead, we fetch the icon SVG,
- * recolor it inline, and create a new data URL.
- * @param {HTMLElement} container
- * @param {string} filterCSS — CSS filter string
- */
-function applyIconFilter(container, filterCSS) {
-  /* No-op for canvas — actual filter applied via fetchAndRecolorIcon(). */
+  /* ── Apply logo shadow/radius via CSS on canvas parent (visual only) ── */
+  const canvasEl = container.querySelector('canvas');
+  if (canvasEl) {
+    // logo shadow is handled by container filter for preview, not baked into canvas export
+    // we keep export clean; preview shadow is CSS elsewhere
+    if (config.logoShadow && imageData) {
+      canvasEl.style.filter = 'drop-shadow(0 2px 8px rgba(0,0,0,0.18))';
+    } else {
+      canvasEl.style.filter = '';
+    }
+  }
 }
 
 /**
@@ -178,6 +245,97 @@ export async function downloadSVG() {
   if (!qrInstance) return;
   const blob = await qrInstance.getRawData('svg');
   triggerDownload(blob, 'qr-code.svg');
+}
+
+/**
+ * Helper: get displayed canvas (with post-process)
+ */
+function getCanvas() {
+  return document.querySelector('#qrDisplay canvas');
+}
+
+/**
+ * Download QR as JPG (canvas → jpeg)
+ */
+export async function downloadJPG() {
+  const canvas = getCanvas();
+  if (!canvas) {
+    // fallback to PNG
+    return downloadPNG();
+  }
+  canvas.toBlob((blob) => {
+    if (blob) triggerDownload(blob, 'qr-code.jpg');
+  }, 'image/jpeg', 0.92);
+}
+
+/**
+ * Download QR as WEBP
+ */
+export async function downloadWEBP() {
+  const canvas = getCanvas();
+  if (!canvas) return downloadPNG();
+  // check support
+  if (!canvas.toBlob) return downloadPNG();
+  canvas.toBlob((blob) => {
+    if (blob) triggerDownload(blob, 'qr-code.webp');
+    else {
+      // fallback
+      downloadPNG();
+    }
+  }, 'image/webp', 0.92);
+}
+
+/**
+ * Download QR as PDF (print dialog)
+ * Creates a new window with the QR centered, then prints
+ */
+export async function downloadPDF() {
+  const canvas = getCanvas();
+  let dataUrl = null;
+  if (canvas) {
+    dataUrl = canvas.toDataURL('image/png');
+  } else if (qrInstance) {
+    const blob = await qrInstance.getRawData('blob');
+    dataUrl = URL.createObjectURL(blob);
+  } else {
+    return;
+  }
+  const win = window.open('', '_blank');
+  if (!win) return;
+  win.document.write(`
+    <html><head><title>QR Code - PDF</title><style>
+      body { margin:0; display:flex; align-items:center; justify-content:center; height:100vh; background:#fff; }
+      img { max-width:90vw; max-height:90vh; width:512px; height:512px; object-fit:contain; }
+      @media print { body { height:auto; } }
+    </style></head><body><img src="${dataUrl}" onload="window.print(); window.onafterprint=()=>window.close();"></body></html>
+  `);
+  win.document.close();
+}
+
+/**
+ * Copy QR PNG to clipboard
+ * Uses ClipboardItem if available, fallback to prompt
+ */
+export async function copyToClipboard() {
+  const canvas = getCanvas();
+  if (!canvas) return false;
+  try {
+    const blob = await new Promise((res) => canvas.toBlob(res, 'image/png'));
+    if (!blob) return false;
+    if (navigator.clipboard && window.ClipboardItem) {
+      await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
+      return true;
+    } else if (navigator.clipboard && navigator.clipboard.writeText) {
+      // fallback: copy data URL as text (not ideal)
+      const dataUrl = canvas.toDataURL('image/png');
+      await navigator.clipboard.writeText(dataUrl);
+      return true;
+    }
+  } catch (e) {
+    console.error('copy failed', e);
+    return false;
+  }
+  return false;
 }
 
 /**

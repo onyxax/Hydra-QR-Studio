@@ -1,0 +1,20 @@
+/* ═══════════════════════════════════════════════════════
+   effects.css — Shadows, Smart Contrast, Animations
+   ═══════════════════════════════════════════════════════ */
+
+/* ─── Smart Contrast (dark mode QR visibility) ─── */
+.smart-contrast-dark {
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.06);
+}
+
+.smart-contrast-dark canvas,
+.smart-contrast-dark svg {
+  filter: drop-shadow(0 0 1px rgba(255,255,255,0.12));
+}
+
+/* ─── Subtle hover lift ─── */
+.card, .qr-display {
+  will-change: box-shadow;
+}
+
+/* ─── Toast already in components.css ─── */

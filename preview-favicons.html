@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hydra Favicons — 3 خيارات</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#F0F2F5; --surface:#fff; --border:#E9ECEF; --text:#121417; --muted:#868E96; }
+  [data-theme="dark"] { --bg:#050508; --surface:#1A1A1E; --border:#2A2A2E; --text:#F1F3F5; --muted:#868E96; }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Inter,sans-serif; background:var(--bg); color:var(--text); padding:32px; transition:.2s}
+  .top{display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:0 auto 24px}
+  .top h1{font-size:1.4rem; font-weight:800}
+  .top p{color:var(--muted); font-size:.85rem}
+  .toggle{padding:8px 16px; border:1px solid var(--border); background:var(--surface); border-radius:999px; cursor:pointer; font-weight:600}
+  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; max-width:1100px; margin:0 auto}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:24px; display:flex; flex-direction:column; gap:16px; box-shadow:0 8px 32px rgba(0,0,0,.06)}
+  .card h2{font-size:1rem; font-weight:800}
+  .card p{font-size:.78rem; color:var(--muted); line-height:1.5}
+  .preview{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; padding:16px; background:var(--bg); border-radius:12px; border:1px dashed var(--border)}
+  .icon-box{ display:flex; flex-direction:column; align-items:center; gap:6px}
+  .icon-box span{font-size:.6rem; color:var(--muted)}
+  .fav{ width:64px; height:64px; border-radius:14px; display:flex; align-items:center; justify-content:center; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,.08)}
+  .fav.sm{ width:32px; height:32px; border-radius:8px}
+  .fav.xs{ width:16px; height:16px; border-radius:4px}
+  .actions{display:flex; gap:8px}
+  .btn{flex:1; padding:10px; border-radius:999px; border:1px solid var(--border); background:var(--surface); cursor:pointer; font-weight:700; font-size:.75rem}
+  .btn.primary{ background:var(--text); color:var(--surface); border-color:var(--text)}
+  .badge{display:inline-block; padding:4px 8px; background:#0891B2; color:#fff; border-radius:999px; font-size:.6rem; font-weight:700}
+  .check{ display:flex; gap:16px; margin-top:8px}
+  .check div{ flex:1; padding:12px; border-radius:12px; display:flex; align-items:center; justify-content:center; gap:8px; font-size:.75rem; font-weight:600}
+  .light{ background:#fff; border:1px solid #E9ECEF; color:#121417}
+  .dark{ background:#0F0F0F; border:1px solid #2A2A2E; color:#F1F3F5}
+</style>
+</head>
+<body>
+<div class="top">
+  <div><h1>اختر هوية Hydra الجديدة</h1><p>3 خيارات — كل خيار له نسخة صباحية وليلية</p></div>
+  <button class="toggle" onclick="document.documentElement.dataset.theme = document.documentElement.dataset.theme==='dark' ? 'light' : 'dark'">تبديل الوضع</button>
+</div>
+
+<div class="grid">
+
+  <!-- Option 1: Monogram H -->
+  <div class="card">
+    <div style="display:flex; justify-content:space-between; align-items:center"><h2>1 — Hydra Monogram</h2><span class="badge">أنصح به</span></div>
+    <p>حرف <b>H</b> هندسي من 3 رؤوس + نقاط QR في الفراغات. يبان H عن قرب و QR عن بعد. الأكثر احترافية وقابلية للتصغير لـ 16px.</p>
+    <div class="preview">
+      <div class="icon-box"><div class="fav"><svg viewBox="0 0 100 100" width="100%" height="100%"><rect width="100" height="100" rx="24" fill="#0F0F0F"/><g fill="white"><rect x="22" y="22" width="14" height="56" rx="4"/><rect x="64" y="22" width="14" height="56" rx="4"/><rect x="22" y="43" width="56" height="14" rx="4"/></g><g fill="#0F0F0F"><rect x="26" y="26" width="6" height="6" rx="1.5"/><rect x="68" y="26" width="6" height="6" rx="1.5"/><rect x="26" y="68" width="6" height="6" rx="1.5"/></g><g fill="#0891B2"><rect x="46" y="46" width="8" height="8" rx="2"/></g></svg></div><span>64px</span></div>
+      <div class="icon-box"><div class="fav sm"><svg viewBox="0 0 100 100" width="100%" height="100%"><rect width="100" height="100" rx="24" fill="#0F0F0F"/><g fill="white"><rect x="22" y="22" width="14" height="56" rx="4"/><rect x="64" y="22" width="14" height="56" rx="4"/><rect x="22" y="43" width="56" height="14" rx="4"/></g><g fill="#0891B2"><rect x="46" y="46" width="8" height="8" rx="2"/></g></svg></div><span>32px</span></div>
+      <div class="icon-box"><div class="fav xs"><svg viewBox="0 0 100 100" width="100%" height="100%"><rect width="100" height="100" rx="24" fill="#0F0F0F"/><g fill="white"><rect x="22" y="22" width="14" height="56" rx="4"/><rect x="64" y="22" width="14" height="56" rx="4"/><rect x="22" y="43" width="56" height="14" rx="4"/></g></svg></div><span>16px</span></div>
+    </div>
+    <div class="check"><div class="light"><svg width="20" height="20" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="white"/><g fill="#0F0F0F"><rect x="22" y="22" width="14" height="56" rx="4"/><rect x="64" y="22" width="14" height="56" rx="4"/><rect x="22" y="43" width="56" height="14" rx="4"/></g><g fill="#0891B2"><rect x="46" y="46" width="8" height="8" rx="2"/></g></svg> فاتح</div><div class="dark"><svg width="20" height="20" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#0F0F0F"/><g fill="white"><rect x="22" y="22" width="14" height="56" rx="4"/><rect x="64" y="22" width="14" height="56" rx="4"/><rect x="22" y="43" width="56" height="14" rx="4"/></g><g fill="#0891B2"><rect x="46" y="46" width="8" height="8" rx="2"/></g></svg> غامق</div></div>
+    <div class="actions"><button class="btn primary" onclick="apply(1)">اختر هذا</button><button class="btn" onclick="preview(1)">معاينة في التبويب</button></div>
+  </div>
+
+  <!-- Option 2: QR Hydra -->
+  <div class="card">
+    <h2>2 — QR Hydra Plus</h2>
+    <p>تطوير الحالية: 3 عيون بحواف 8px أنعم، النقاط الأربع بلون <b>Hydra Red #E11D48</b>، وخلفية متدرجة ink→zinc.</p>
+    <div class="preview">
+      <div class="icon-box"><div class="fav"><svg viewBox="0 0 100 100" width="100%" height="100%"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0F0F0F"/><stop offset="1" stop-color="#27272A"/></linearGradient></defs><rect width="100" height="100" rx="24" fill="url(#g2)"/><g fill="white"><rect x="22" y="22" width="20" height="20" rx="7"/><rect x="58" y="22" width="20" height="20" rx="7"/><rect x="22" y="58" width="20" height="20" rx="7"/></g><g fill="#0F0F0F"><rect x="28" y="28" width="8" height="8" rx="2"/><rect x="64" y="28" width="8" height="8" rx="2"/><rect x="28" y="64" width="8" height="8" rx="2"/></g><g fill="#E11D48"><rect x="58" y="58" width="8" height="8" rx="2.5"/><rect x="70" y="58" width="8" height="8" rx="2.5"/><rect x="58" y="70" width="8" height="8" rx="2.5"/><rect x="70" y="70" width="8" height="8" rx="2.5"/></g></svg></div><span>64px</span></div>
+      <div class="icon-box"><div class="fav sm"><svg viewBox="0 0 100 100" width="100%" height="100%"><rect width="100" height="100" rx="24" fill="#0F0F0F"/><g fill="white"><rect x="22" y="22" width="20" height="20" rx="7"/><rect x="58" y="22" width="20" height="20" rx="7"/><rect x="22" y="58" width="20" height="20" rx="7"/></g><g fill="#E11D48"><rect x="58" y="58" width="8" height="8" rx="2"/></g></svg></div><span>32px</span></div>
+      <div class="icon-box"><div class="fav xs"><svg viewBox="0 0 100 100" width="100%" height="100%"><rect width="100" height="100" rx="24" fill="#0F0F0F"/><g fill="white"><rect x="22" y="22" width="20" height="20" rx="6"/><rect x="58" y="22" width="20" height="20" rx="6"/><rect x="22" y="58" width="20" height="20" rx="6"/></g></svg></div><span>16px</span></div>
+    </div>
+    <div class="check"><div class="light"><svg width="20" height="20" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="white"/><g fill="#0F0F0F"><rect x="22" y="22" width="20" height="20" rx="7"/><rect x="58" y="22" width="20" height="20" rx="7"/><rect x="22" y="58" width="20" height="20" rx="7"/></g><g fill="#E11D48"><rect x="58" y="58" width="8" height="8" rx="2"/></g></svg> فاتح</div><div class="dark"><svg width="20" height="20" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#0F0F0F"/><g fill="white"><rect x="22" y="22" width="20" height="20" rx="7"/><rect x="58" y="22" width="20" height="20" rx="7"/><rect x="22" y="58" width="20" height="20" rx="7"/></g><g fill="#E11D48"><rect x="58" y="58" width="8" height="8" rx="2"/></g></svg> غامق</div></div>
+    <div class="actions"><button class="btn primary" onclick="apply(2)">اختر هذا</button><button class="btn" onclick="preview(2)">معاينة</button></div>
+  </div>
+
+  <!-- Option 3: Abstract Beast — IMPROVED v2 -->
+  <div class="card" style="border-color:#0891B2; box-shadow:0 8px 32px rgba(8,145,178,.15)">
+    <div style="display:flex; justify-content:space-between; align-items:center"><h2>3 — Abstract Beast <span style="font-size:.65rem; background:#0891B2; color:#fff; padding:3px 8px; border-radius:999px; margin-right:6px;">محسّن ✨</span></h2><span class="badge" style="background:#E11D48">جديد</span></div>
+    <p>نفس الروح الجريئة لكن <b>مصقول</b>: رؤوس بعيون وفتحات أنف، أعناق بانحناء طبيعي، ونقاط QR سماوية خفية في الفراغ — يثبت حتى على 16px.</p>
+    <div class="preview">
+      <div class="icon-box"><div class="fav" style="background:#0F0F0F; padding:6px"><svg viewBox="0 0 100 100" width="100%" height="100%"><rect width="100" height="100" rx="24" fill="#0F0F0F"/><g fill="none" stroke="white" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round"><path d="M28 76 C28 58, 20 42, 24 28"/><path d="M50 78 C50 58, 50 34, 50 14"/><path d="M72 76 C72 58, 80 42, 76 28"/><path d="M24 78 Q50 88 76 78"/></g><g fill="white" stroke="white" stroke-linejoin="round" stroke-width="1.5"><path d="M24 28 L16 16 L22 20 L30 16 L28 28 Z"/><path d="M50 14 L40 4 L50 10 L60 4 Z"/><path d="M76 28 L68 16 L76 20 L84 16 L82 28 Z"/></g><g fill="#0F0F0F"><circle cx="22" cy="24" r="1.3"/><circle cx="50" cy="11" r="1.6"/><circle cx="78" cy="24" r="1.3"/></g><g fill="#0891B2"><circle cx="38" cy="58" r="2.2" opacity="0.95"/><circle cx="62" cy="58" r="2.2" opacity="0.95"/><circle cx="50" cy="68" r="2.2" opacity="0.95"/><circle cx="50" cy="50" r="1.4" opacity="0.7"/></g></svg></div><span>64px</span></div>
+      <div class="icon-box"><div class="fav sm" style="background:#0F0F0F; padding:4px"><svg viewBox="0 0 100 100" width="100%" height="100%"><rect width="100" height="100" rx="24" fill="#0F0F0F"/><g fill="none" stroke="white" stroke-width="5" stroke-linecap="round"><path d="M28 76 C28 58, 20 42, 24 28"/><path d="M50 78 L50 14"/><path d="M72 76 C72 58, 80 42, 76 28"/></g><g fill="white"><path d="M24 28 L16 16 L30 16 Z"/><path d="M50 14 L42 4 L58 4 Z"/><path d="M76 28 L68 16 L84 16 Z"/></g></svg></div><span>32px</span></div>
+      <div class="icon-box"><div class="fav xs" style="background:#0F0F0F"><svg viewBox="0 0 100 100" width="100%" height="100%"><rect width="100" height="100" rx="24" fill="#0F0F0F"/><g fill="none" stroke="white" stroke-width="8" stroke-linecap="round"><path d="M28 76 C28 58, 20 42, 24 28"/><path d="M50 78 L50 14"/><path d="M72 76 L72 58, 80 42, 76 28"/></g></svg></div><span>16px</span></div>
+    </div>
+    <div class="check"><div class="light" style="background:#fff;"><svg width="20" height="20" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="white"/><g fill="none" stroke="#0F0F0F" stroke-width="4.5" stroke-linecap="round"><path d="M28 76 C28 58, 20 42, 24 28"/><path d="M50 78 L50 14"/><path d="M72 76 C72 58, 80 42, 76 28"/></g><g fill="#0F0F0F"><path d="M24 28 L16 16 L30 16 Z"/><path d="M50 14 L42 4 L58 4 Z"/><path d="M76 28 L68 16 L84 16 Z"/></g></svg> فاتح</div><div class="dark"><svg width="20" height="20" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#0F0F0F"/><g fill="none" stroke="white" stroke-width="4.5" stroke-linecap="round"><path d="M28 76 C28 58, 20 42, 24 28"/><path d="M50 78 L50 14"/><path d="M72 76 C72 58, 80 42, 76 28"/></g><g fill="white"><path d="M24 28 L16 16 L30 16 Z"/><path d="M50 14 L42 4 L58 4 Z"/><path d="M76 28 L68 16 L84 16 Z"/></g></svg> غامق</div></div>
+    <div class="actions"><button class="btn primary" onclick="apply(3)">اختر المحسّن</button><button class="btn" onclick="preview(3)">معاينة</button></div>
+  </div>
+
+</div>
+
+<script>
+const favicons = {
+  1: {
+    light: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='white'/%3E%3Cg fill='%230F0F0F'%3E%3Crect x='22' y='22' width='14' height='56' rx='4'/%3E%3Crect x='64' y='22' width='14' height='56' rx='4'/%3E%3Crect x='22' y='43' width='56' height='14' rx='4'/%3E%3C/g%3E%3Cg fill='%230891B2'%3E%3Crect x='46' y='46' width='8' height='8' rx='2'/%3E%3C/g%3E%3C/svg%3E`,
+    dark: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230F0F0F'/%3E%3Cg fill='white'%3E%3Crect x='22' y='22' width='14' height='56' rx='4'/%3E%3Crect x='64' y='22' width='14' height='56' rx='4'/%3E%3Crect x='22' y='43' width='56' height='14' rx='4'/%3E%3C/g%3E%3Cg fill='%230891B2'%3E%3Crect x='46' y='46' width='8' height='8' rx='2'/%3E%3C/g%3E%3C/svg%3E`
+  },
+  2: {
+    light: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='white'/%3E%3Cg fill='%230F0F0F'%3E%3Crect x='22' y='22' width='20' height='20' rx='7'/%3E%3Crect x='58' y='22' width='20' height='20' rx='7'/%3E%3Crect x='22' y='58' width='20' height='20' rx='7'/%3E%3C/g%3E%3Cg fill='white'%3E%3Crect x='28' y='28' width='8' height='8' rx='2'/%3E%3Crect x='64' y='28' width='8' height='8' rx='2'/%3E%3Crect x='28' y='64' width='8' height='8' rx='2'/%3E%3C/g%3E%3Cg fill='%23E11D48'%3E%3Crect x='58' y='58' width='8' height='8' rx='2.5'/%3E%3Crect x='70' y='58' width='8' height='8' rx='2.5'/%3E%3Crect x='58' y='70' width='8' height='8' rx='2.5'/%3E%3Crect x='70' y='70' width='8' height='8' rx='2.5'/%3E%3C/g%3E%3C/svg%3E`,
+    dark: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230F0F0F'/%3E%3Cg fill='white'%3E%3Crect x='22' y='22' width='20' height='20' rx='7'/%3E%3Crect x='58' y='22' width='20' height='20' rx='7'/%3E%3Crect x='22' y='58' width='20' height='20' rx='7'/%3E%3C/g%3E%3Cg fill='%23E11D48'%3E%3Crect x='58' y='58' width='8' height='8' rx='2.5'/%3E%3Crect x='70' y='58' width='8' height='8' rx='2.5'/%3E%3Crect x='58' y='70' width='8' height='8' rx='2.5'/%3E%3Crect x='70' y='70' width='8' height='8' rx='2.5'/%3E%3C/g%3E%3C/svg%3E`
+  },
+  3: {
+    light: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='white'/%3E%3Cg fill='none' stroke='%230F0F0F' stroke-width='3.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M28 76 C28 58 20 42 24 28'/%3E%3Cpath d='M50 78 C50 58 50 34 50 14'/%3E%3Cpath d='M72 76 C72 58 80 42 76 28'/%3E%3Cpath d='M24 78 Q50 88 76 78'/%3E%3C/g%3E%3Cg fill='%230F0F0F'%3E%3Cpath d='M24 28 L16 16 L22 20 L30 16 L28 28 Z'/%3E%3Cpath d='M50 14 L40 4 L50 10 L60 4 Z'/%3E%3Cpath d='M76 28 L68 16 L76 20 L84 16 L82 28 Z'/%3E%3C/g%3E%3Cg fill='%230891B2'%3E%3Ccircle cx='38' cy='58' r='2.2'/%3E%3Ccircle cx='62' cy='58' r='2.2'/%3E%3Ccircle cx='50' cy='68' r='2.2'/%3E%3C/g%3E%3C/svg%3E`,
+    dark: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230F0F0F'/%3E%3Cg fill='none' stroke='white' stroke-width='3.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M28 76 C28 58 20 42 24 28'/%3E%3Cpath d='M50 78 C50 58 50 34 50 14'/%3E%3Cpath d='M72 76 C72 58 80 42 76 28'/%3E%3Cpath d='M24 78 Q50 88 76 78'/%3E%3C/g%3E%3Cg fill='white'%3E%3Cpath d='M24 28 L16 16 L22 20 L30 16 L28 28 Z'/%3E%3Cpath d='M50 14 L40 4 L50 10 L60 4 Z'/%3E%3Cpath d='M76 28 L68 16 L76 20 L84 16 L82 28 Z'/%3E%3C/g%3E%3Cg fill='%230891B2'%3E%3Ccircle cx='38' cy='58' r='2.2'/%3E%3Ccircle cx='62' cy='58' r='2.2'/%3E%3Ccircle cx='50' cy='68' r='2.2'/%3E%3C/g%3E%3C/svg%3E`
+  }
+};
+function preview(n){
+  const link=document.createElement('link'); link.rel='icon'; link.href=favicons[n].dark; document.head.appendChild(link);
+  setTimeout(()=>link.remove(),2000);
+  alert('تمت معاينة الخيار '+n+' في تبويب المتصفح لمدة ثانيتين — انظر للأيقونة فوق');
+}
+function apply(n){
+  localStorage.setItem('hydra-fav-choice', n);
+  // update main index.html favicon via postMessage to opener if exists
+  if(window.opener){ window.opener.postMessage({fav:n},'*'); }
+  alert('تم اختيار الخيار '+n+' — سيتم تطبيقه على الموقع مع نسختي الصباحي/الليلي. أخبر المطور لتثبيته.');
+  // also try to update current preview page favicon permanently
+  document.querySelectorAll('link[rel=\"icon\"]').forEach(l=>l.remove());
+  const l=document.createElement('link'); l.rel='icon'; l.href=favicons[n].dark; document.head.appendChild(l);
+}
+</script>
+</body>
+</html>

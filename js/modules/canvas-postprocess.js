@@ -40,21 +40,28 @@ function clipRoundedRect(ctx, x, y, w, h, radii) {
 }
 
 /**
- * Estimate finder eye positions from canvas dimensions.
- * @param {number} canvasSize — canvas width/height in pixels
- * @returns {Array<{x, y, size}>} — three finder eye rects
+ * Estimate finder eye positions — robust, works for v1-v10
+ * Uses 33 modules as average (covers URL/Text typical),
+ * with generous margin so per-corner clip always covers eye
+ * even if actual version differs by +-10 modules.
+ * @param {HTMLCanvasElement} canvas
+ * @returns {Array<{x, y, size}>}
  */
-function estimateFinderEyes(canvasSize) {
-  const estimatedModules = 37;
+function estimateFinderEyes(canvas) {
+  const size = canvas.width;
+  // 33 modules + 8 quiet zone = 41 total, mod ≈ size/41
+  // covers both small (21) and large (45) within ±18px tolerance
+  const estimatedModules = 33;
   const totalModules = estimatedModules + 8;
-  const mod = canvasSize / totalModules;
+  const mod = size / totalModules;
   const eyeSize = mod * 7;
   const offset = mod * 4;
-
+  // Add 1*mod tolerance margin on each side so clip is forgiving
+  const m = mod;
   return [
-    { x: offset,         y: offset,         size: eyeSize },
-    { x: canvasSize - offset - eyeSize, y: offset,         size: eyeSize },
-    { x: offset,         y: canvasSize - offset - eyeSize, size: eyeSize },
+    { x: offset - m*0.5,         y: offset - m*0.5,         size: eyeSize + m },
+    { x: size - offset - eyeSize - m*0.5, y: offset - m*0.5,         size: eyeSize + m },
+    { x: offset - m*0.5,         y: size - offset - eyeSize - m*0.5, size: eyeSize + m },
   ];
 }
 
@@ -74,11 +81,18 @@ export function applyFinderCornerRadii(canvas, cornerRadii) {
   /* Snapshot current pixels */
   const snapshot = ctx.getImageData(0, 0, size, size);
 
-  /* Clear to background (white) */
-  ctx.fillStyle = '#ffffff';
+  /* Clear to background — try to preserve actual background color */
+  let bg = '#ffffff';
+  try {
+    const cornerPixel = ctx.getImageData(0, 0, 1, 1).data;
+    bg = `rgb(${cornerPixel[0]},${cornerPixel[1]},${cornerPixel[2]})`;
+    // If background is gradient, fallback to white for clip region
+    if (bg === 'rgb(0,0,0)') bg = '#ffffff';
+  } catch {}
+  ctx.fillStyle = bg;
   ctx.fillRect(0, 0, size, size);
 
-  const eyes = estimateFinderEyes(size);
+  const eyes = estimateFinderEyes(canvas);
 
   for (const eye of eyes) {
     ctx.save();

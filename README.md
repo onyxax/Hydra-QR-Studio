@@ -1,115 +1,176 @@
-# Hydra QR Studio
+<p align="center">
+  <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230F0F0F'/%3E%3Cg fill='white'%3E%3Crect x='22' y='22' width='14' height='56' rx='4'/%3E%3Crect x='64' y='22' width='14' height='56' rx='4'/%3E%3Crect x='22' y='43' width='56' height='14' rx='4'/%3E%3C/g%3E%3Cg fill='%230891B2'%3E%3Crect x='46' y='46' width='8' height='8' rx='2'/%3E%3C/g%3E%3C/svg%3E" width="84" height="84" alt="Hydra Logo"/>
+</p>
 
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
-![Status: Stable](https://img.shields.io/badge/Status-Stable-brightgreen.svg)
+<h1 align="center">Hydra QR Studio</h1>
 
-A production-grade, enterprise-minimalist QR Code Generator built for power users. Generate scannable, customizable QR codes with real-time preview, dual-source icon libraries, gradient backgrounds, and per-corner finder eye styling — all in a locked-viewport triple-column studio layout.
+<p align="center">
+  <b>Professional floating QR Studio — Vanilla HTML/CSS/JS only</b><br/>
+  <span style="color:#868E96">Real-time preview • 255 icons • Gradients • Frame captions • 6 exports</span>
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-0ea5e9?style=for-the-badge&logo=open-source-initiative&logoColor=white" alt="MIT"/></a>
+  <img src="https://img.shields.io/badge/Status-Stable-22c55e?style=for-the-badge&logo=checkmarx&logoColor=white" alt="Stable"/>
+  <img src="https://img.shields.io/badge/Build-Static-64748b?style=for-the-badge&logo=html5&logoColor=white" alt="Static"/>
+  <img src="https://img.shields.io/badge/Engine-qr--code--styling-0891b2?style=for-the-badge&logo=qrcode&logoColor=white" alt="Engine"/>
+  <a href="https://vercel.com/new"><img src="https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel"/></a>
+  <img src="https://img.shields.io/badge/Version-2.0.0-8b5cf6?style=for-the-badge&logo=git&logoColor=white" alt="Version"/>
+  <img src="https://img.shields.io/badge/Made%20with-Vanilla-F59E0B?style=for-the-badge&logo=javascript&logoColor=white" alt="Vanilla"/>
+  <img src="https://img.shields.io/badge/Icons-255-EC4899?style=for-the-badge&logo=icons8&logoColor=white" alt="Icons"/>
+</p>
+
+<p align="center">
+  <a href="#-overview">Overview</a> •
+  <a href="#-features">Features</a> •
+  <a href="#-demo">Demo</a> •
+  <a href="#-tech-stack">Stack</a> •
+  <a href="#-project-structure">Structure</a> •
+  <a href="#-getting-started">Start</a> •
+  <a href="#-usage">Usage</a> •
+  <a href="#-deployment">Deploy</a> •
+  <a href="#-license">License</a>
+</p>
 
 ---
 
-## Features
+## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/sparkles.svg" width="20" height="20" style="vertical-align:middle" /> Overview
 
-- **11 Data Types** — URL, Text, Email, WiFi, vCard, WhatsApp, Instagram, X/Twitter, PayPal, Crypto
-- **Live Preview** — Real-time QR rendering with `qr-code-styling` engine (100% scannable output)
-- **Dual-Source Icon Library** — 67 brand icons (SimpleIcons with official hex colors) + 72 system icons (Lucide, theme-adaptive)
-- **Icon Recolor** — Fetch-and-recolor SVG pipeline for brand-accurate icon fills
-- **Background Gradients** — Linear and radial gradient support with angle control
-- **Per-Corner Finder Eye Rounding** — Individual TL/TR/BL/BR corner radius sliders
-- **Finder Eye Colors** — Separate outer square and inner dot color pickers
-- **Fixed Icon Size** — Decoupled from Error Correction level; user-controlled 5–50%
-- **Dark/Light Theme** — Full CSS variable theming with localStorage persistence
-- **Smart Contrast Engine** — MutationObserver-based dark mode visibility enhancement
-- **Power User Studio** — Triple-column layout: 80px sidebar nav + settings panel + live preview
-- **Export** — PNG and SVG download via `qr-code-styling` blob API
-- **Zero Build Step** — Pure HTML/CSS/JS, single CDN dependency, instant open
+> **Hydra QR Studio** is a production-grade, **floating glass/blur** QR generator for power users. No framework, no build — open and generate. Built with pure HTML/CSS/JS and a single CDN dependency, deployed as static on Vercel.
+
+**Why Hydra?**
+- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/bolt.svg" width="14" height="14" style="vertical-align:middle" /> **Instant** — zero install, zero build, opens in 200ms
+- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/check-circle.svg" width="14" height="14" style="vertical-align:middle" /> **Precise** — 100% scannable, high-contrast preview
+- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/swatch.svg" width="14" height="14" style="vertical-align:middle" /> **Expressive** — 255 icons + gradients + frame captions
+- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/squares-2x2.svg" width="14" height="14" style="vertical-align:middle" /> **Floating** — Topbar + Dock + two glass panels
 
 ---
 
-## How to Run Locally
+## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/squares-2x2.svg" width="20" height="20" style="vertical-align:middle" /> Features
 
-```bash
-# Clone the repository
-git clone https://github.com/your-username/hydra-qr-studio.git
-cd hydra-qr-studio
+| <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/link.svg" width="14" height="14" /> Data | <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/eye.svg" width="14" height="14" /> Visual | <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/photo.svg" width="14" height="14" /> Brand | <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/swatch.svg" width="14" height="14" /> Color |
+|---|---|---|---|
+| **10 Types** — URL, Text, Email, WiFi, vCard, WhatsApp, Instagram, X, PayPal, Crypto | **Dots** — square, extra-rounded, rounded, dots, classy (+ gradient + opacity) | **184 Brands** — SimpleIcons CDN with official hex | **QR Colors** — fg/bg + WCAG contrast badge |
+| Live encode via `qr-config.js` | **Eyes** — frame shape (square/rounded/leaf) + ball shape + eye colors | **71 System** — Lucide CDN, theme-adaptive | **Background Gradient** — linear/radial + angle |
+|  | Error correction L/M/Q/H • Quiet zone • Preview width | **Logo** — drag-drop, padding, bg, radius, shadow, hide dots • **Icon recolor** pipeline | **Dots Gradient** — independent fg gradient |
 
-# No install required — open directly in browser
-# Using Python (recommended for module support):
-python -m http.server 8080
+**More:**
+- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/rectangle-group.svg" width="14" height="14" /> **Frame Caption** — `SCAN ME` bar below QR
+- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/bookmark.svg" width="14" height="14" /> **Presets** — Classic / Ocean / Sunset / Midnight + Save Custom
+- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/moon.svg" width="14" height="14" /> **Dark/Light** — CSS variables + `localStorage` + smart contrast
+- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/arrow-down-tray.svg" width="14" height="14" /> **Export 6** — **PNG / SVG / JPG / WEBP / PDF / Copy**
+- <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/view-columns.svg" width="14" height="14" /> **Floating Studio** — Glass Topbar + Left Dock + two floating panels
 
-# Or using Node.js:
-npx serve .
+---
 
-# Or simply open index.html in your browser
+## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/cpu-chip.svg" width="20" height="20" style="vertical-align:middle" /> Tech Stack
+
+| Layer | Technology | CDN |
+|---|---|---|
+| Markup | HTML5 | — |
+| Styling | CSS3 — Custom Properties, Grid, Flex, `backdrop-filter` | — |
+| Logic | Vanilla ES Modules (no bundler) | — |
+| QR Engine | [`qr-code-styling@1.5.0`](https://github.com/kozakdenys/qr-code-styling) | `jsDelivr` |
+| Brand Icons | [SimpleIcons](https://simpleicons.org) — 184 icons | `cdn.simpleicons.org` |
+| System Icons | [Lucide Static](https://lucide.dev) — 71 icons | `cdn.jsdelivr.net/npm/lucide-static` |
+| UI Icons | [Heroicons 2.1.5](https://heroicons.com) — outline 24 | `cdn.jsdelivr.net/npm/heroicons` |
+| Fonts | Inter 400/500/600/700 | Google Fonts |
+| Hosting | Vercel Static + `vercel.json` | — |
+
+---
+
+## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/folder.svg" width="20" height="20" style="vertical-align:middle" /> Project Structure
+
+```text
+hydra-qr-studio/
+├── index.html                 # Topbar + Dock + 2 floating panels
+├── vercel.json                # cleanUrls + rewrites + immutable cache
+├── css/
+│   ├── tokens.css             # Light/dark tokens (single source)
+│   ├── base.css               # Reset + typography
+│   ├── layout.css             # Floating header/dock + 2-col grid
+│   ├── preview.css            # Preview + frame
+│   ├── effects.css            # Shadows & smart-contrast
+│   ├── components.css         # Toasts
+│   └── components/
+│       ├── cards.css          # Card + featured
+│       ├── inputs.css         # Chips, ranges, colors, switches
+│       └── icon-picker.css    # Search + tabs + grid
+├── js/
+│   ├── main.js                # Entry — state, wiring, dock, export
+│   ├── state.js               # Central reactive state
+│   ├── config/constants.js    # Defaults, limits, storage keys
+│   ├── utils/                 # dom, debounce, contrast, presets
+│   └── modules/               # qr-generator, qr-config, icon-data (255), theme...
+└── README.md
 ```
 
-Navigate to `http://localhost:8080` (or your chosen port).
+---
+
+## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/rocket-launch.svg" width="20" height="20" style="vertical-align:middle" /> Getting Started
+
+```bash
+# clone
+git clone https://github.com/onyxax/Hydra-QR-Studio.git
+cd Hydra-QR-Studio
+
+# run — no install, no build
+python -m http.server 8080
+# or
+npx serve .
+
+# open
+http://localhost:8080
+```
+
+> Requires a local server for ES Modules (`file://` blocks imports).
 
 ---
 
-## Technology Stack
+## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/cursor-arrow-rays.svg" width="20" height="20" style="vertical-align:middle" /> Usage
 
-| Layer | Technology |
-|---|---|
-| Markup | HTML5 |
-| Styling | CSS3 (Custom Properties, Grid, Flexbox) |
-| Logic | Vanilla ES Modules (no bundler) |
-| QR Engine | [`qr-code-styling@1.5.0`](https://github.com/nicknisi/qr-code-styling) via jsDelivr CDN |
-| Brand Icons | [SimpleIcons CDN](https://simpleicons.org/) — 67 icons with official brand hex |
-| System Icons | [Lucide Static CDN](https://lucide.dev/) — 72 icons, theme-adaptive via CSS filter |
-| Fonts | Inter (Google Fonts) |
-| Hosting | Vercel (Static) |
+1. Pick **Data Type** → fill form → live preview updates
+2. Tweak **Visuals** (dots, eyes) → **Branding** (icon/logo) → **Colors** (gradients)
+3. Click **Export ▾** in topbar → choose **PNG / SVG / JPG / WEBP / PDF / Copy**
+4. Toggle **Dark/Light** via moon/sun in topbar (persists in `localStorage`)
 
 ---
 
-## Deployment
+## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/wrench-screwdriver.svg" width="20" height="20" style="vertical-align:middle" /> Customization
 
-### Vercel (Recommended)
+- **Tokens** → `css/tokens.css` (all colors, radii, shadows, `--accent`)
+- **Layout** → `css/layout.css` (floating header/dock, `grid-template-columns: 1fr var(--preview-col)`)
+- **Add brand icon** → `js/modules/icon-data.js` → `{ slug, label, color, type:'brand' }`
+- **Add data type** → `js/modules/qr-config.js` → `fields[]` + `encode()`
+- **Defaults** → `js/config/constants.js` → `DEFAULT_STATE` + `LIMITS`
 
-1. Push to a GitHub repository
-2. Import the repository at [vercel.com/new](https://vercel.com/new)
-3. Framework Preset: **Other**
-4. Root Directory: `./`
-5. Deploy — no build step required
+---
 
-Or using the Vercel CLI:
+## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/cloud-arrow-up.svg" width="20" height="20" style="vertical-align:middle" /> Deployment
+
+**Vercel — zero config:**
+1. Push to GitHub
+2. Import at `vercel.com/new` → Framework: `Other` → Root: `./` → Deploy
 
 ```bash
 npm i -g vercel
 vercel deploy --prod
 ```
 
-### Manual Deployment
-
-Upload the entire project directory to any static host (Netlify, GitHub Pages, Cloudflare Pages). The app has zero build dependencies.
+**Any static host** (Netlify, GitHub Pages, Cloudflare Pages): upload the folder — no build.
 
 ---
 
-## Project Structure
+## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/information-circle.svg" width="20" height="20" style="vertical-align:middle" /> FAQ
 
-```
-hydra-qr-studio/
-├── index.html              # App entry point
-├── vercel.json             # Vercel deployment config
-├── css/
-│   ├── styles.css          # Theme system, layout, components
-│   └── components.css      # Toast notifications, utilities
-├── js/
-│   ├── main.js             # App entry, state, sidebar nav, event wiring
-│   └── modules/
-│       ├── qr-generator.js     # qr-code-styling wrapper
-│       ├── qr-config.js        # 11 data type definitions
-│       ├── canvas-postprocess.js   # Per-corner finder eye rounding
-│       ├── icon-data.js        # Dual-source icon library (SimpleIcons + Lucide)
-│       ├── ui-handlers.js      # Dynamic form builder, toasts
-│       ├── upload-handler.js   # Logo drag-drop upload
-│       └── theme.js            # Dark/Light mode persistence
-└── README.md
-```
+**Q: Why not use a framework?**
+A: To stay fast, portable and to train Vanilla JS — zero build, instant open, easy to fork.
+
+**Q: Are QR codes scannable with gradients/logos?**
+A: Yes — high error correction `Q (25%)` by default + contrast badge warns if low.
 
 ---
 
-## License
+## <img src="https://cdn.jsdelivr.net/npm/heroicons@2.1.5/24/outline/shield-check.svg" width="20" height="20" style="vertical-align:middle" /> License
 
-Copyright (c) 2026 Onyxax — [MIT License](LICENSE)
-
-Licensed under the MIT License. See the [LICENSE](LICENSE) file for full terms.
+Copyright © 2026 Onyxax — [MIT License](LICENSE)
